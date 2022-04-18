@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "library")(type "KiCad")(uri "D:/Projects/UVR Xenia-1/10k micro fluid_JAM JAR/BlackberryJam_Electronics/library.pretty")(options "")(descr ""))
+  (lib (name "BlackberryJam_footprint")(type "KiCad")(uri "D:/Projects/UVR Xenia-1/10k micro fluid_JAM JAR/BlackberryJam_Electronics/library/BlackberryJam_footprint.pretty")(options "")(descr ""))
+)
