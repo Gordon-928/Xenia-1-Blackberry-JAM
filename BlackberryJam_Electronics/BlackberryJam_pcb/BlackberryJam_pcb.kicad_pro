@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.381
+          "min_clearance": 0.254
         }
       },
       "diff_pair_dimensions": [
@@ -381,7 +381,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "BlackberryJam_pcb.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
