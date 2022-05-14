@@ -1142,7 +1142,7 @@
     (uuid 02a1b6c2-6f88-48c7-b7fb-001d925f6edf)
     (property "Reference" "D2" (id 0) (at 205.74 135.89 0))
     (property "Value" "1N4148" (id 1) (at 205.74 138.43 0))
-    (property "Footprint" "Diode_SMD:D_0805_2012Metric" (id 2) (at 205.74 137.795 0)
+    (property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" (id 2) (at 205.74 137.795 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" (id 3) (at 205.74 142.24 0)
@@ -1208,7 +1208,7 @@
     (uuid 84f81411-870a-4f25-8de9-7583b9746a2e)
     (property "Reference" "U3" (id 0) (at 154.94 73.66 0))
     (property "Value" "Slip_Ring" (id 1) (at 154.94 76.2 0))
-    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (id 2) (at 154.94 85.09 0)
+    (property "Footprint" "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" (id 2) (at 154.94 85.09 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (id 3) (at 154.94 85.09 0)
@@ -1276,7 +1276,7 @@
     (uuid ae206594-922a-47b5-9c91-61f5f39a2445)
     (property "Reference" "M2" (id 0) (at 149.86 115.57 90))
     (property "Value" "PUMP2" (id 1) (at 149.86 113.03 90))
-    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (id 2) (at 150.876 107.95 0)
+    (property "Footprint" "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" (id 2) (at 150.876 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 150.876 107.95 0)
@@ -1471,7 +1471,7 @@
     (property "Value" "CONTROL GROUP MOTOR" (id 1) (at 195.58 124.46 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (id 2) (at 204.724 129.54 0)
+    (property "Footprint" "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" (id 2) (at 204.724 129.54 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 204.724 129.54 0)
@@ -1490,7 +1490,7 @@
     (property "Value" "1N4148" (id 1) (at 173.99 86.3599 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Diode_SMD:D_0805_2012Metric" (id 2) (at 175.895 85.09 0)
+    (property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" (id 2) (at 175.895 85.09 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" (id 3) (at 171.45 85.09 0)
@@ -1552,19 +1552,19 @@
       (reference "BT2") (unit 1) (value "Battery_Cell") (footprint "")
     )
     (path "/d899032e-9784-4c0c-bcda-e65674f5560b"
-      (reference "D1") (unit 1) (value "1N4148") (footprint "Diode_SMD:D_0805_2012Metric")
+      (reference "D1") (unit 1) (value "1N4148") (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
     )
     (path "/02a1b6c2-6f88-48c7-b7fb-001d925f6edf"
-      (reference "D2") (unit 1) (value "1N4148") (footprint "Diode_SMD:D_0805_2012Metric")
+      (reference "D2") (unit 1) (value "1N4148") (footprint "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal")
     )
     (path "/cd2f8b2b-6f46-4bcf-8ef1-ae7fe9565df6"
       (reference "M1") (unit 1) (value "PUMP1") (footprint "")
     )
     (path "/ae206594-922a-47b5-9c91-61f5f39a2445"
-      (reference "M2") (unit 1) (value "PUMP2") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
+      (reference "M2") (unit 1) (value "PUMP2") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
     )
     (path "/d415a979-1ddf-4428-90c1-d6cd54d6a78c"
-      (reference "M3") (unit 1) (value "CONTROL GROUP MOTOR") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
+      (reference "M3") (unit 1) (value "CONTROL GROUP MOTOR") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
     )
     (path "/db78ae3c-b9b4-492e-b5d4-f93de9bf2cf7"
       (reference "U1") (unit 1) (value "HW-107_Breakout") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
@@ -1573,7 +1573,7 @@
       (reference "U2") (unit 1) (value "ARDUINO_PRO_MINI") (footprint "BlackberryJam_footprint:ARDUINO_PRO_MINI")
     )
     (path "/84f81411-870a-4f25-8de9-7583b9746a2e"
-      (reference "U3") (unit 1) (value "Slip_Ring") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
+      (reference "U3") (unit 1) (value "Slip_Ring") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
     )
     (path "/cfe0f77d-17e4-40bf-a564-d6ecc50173f5"
       (reference "U4") (unit 1) (value "MMA8452_Breakout") (footprint "BlackberryJam_footprint:MMA8452Q_Breakout")
