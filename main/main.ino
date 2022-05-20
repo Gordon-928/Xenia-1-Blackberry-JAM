@@ -27,11 +27,13 @@
 
 
 MMA8452Q accel;
-bool triggered = 0;
+bool triggered = 0; //experimetn state
+bool launched = 0; //launcg state
 unsigned long previousTime = 0;
 unsigned long timer = 0;
-const float cutoff = 0.81; //0.9g squared 
-const float debounce = 200; //debounce time 200ms
+const float cutoff_microg = 0.81; //0.9g squared 
+const float cutoff_launch = 16.0; //4g Squared
+const float debounce = 1000; //debounce time 200ms
 
 float x,y,z;
 
@@ -73,7 +75,6 @@ void setup(){
   }
 
     accel.active();
-
     if (accel.isActive()){
       
       //flashing Arduino LED to indicate IMU status
@@ -89,24 +90,35 @@ void setup(){
 
 void loop(){
   previousTime = millis(); //time stamp for next event 
-  Serial.println(millis() - previousTime);
+  Serial.println(millis() - previousTime); 
   
+  while(high_G() && !launched){
+    if((millis() - previousTime)>= debounce){//signal debounce
+      launched = 1;  
+    }
+  }
+  if(!launched){
+    return;
+  }
+
+  //while not 1G (micro g)
+
+  digitalWrite(STBY, HIGH); //STBY (H)
+  digitalWrite(Motor_enable, HIGH); //PWMA (H)
+  digitalWrite(Motor,HIGH); //turn on motor -> AIN1 (H)
+  
+  previousTime = millis(); //time stamp for next event
   while(!is_1G()){
     if((millis() - previousTime)>= debounce){//signal debounce
-      //while not 1G (micro g)
-      Serial.println(millis() - previousTime);
-      digitalWrite(STBY, HIGH); //STBY (H)
-      digitalWrite(Motor_enable, HIGH); //PWMA (H)
-      digitalWrite(Motor,HIGH); //turn on motor -> AIN1 (H)
-      triggered = 1;
-     }
+    triggered = 1;  
+    }
   }
   
-  digitalWrite(Motor_enable,LOW); //turn off motor -> AIN1 (L)
   previousTime = millis(); 
 
-  while(is_1G() && triggered){
+  while(is_1G() && triggered){ //experienced microG and re-enter normal G
     if((millis() - previousTime)>= debounce){
+      digitalWrite(Motor_enable,LOW); //turn off motor -> AIN1 (L)
       timer = millis(); //time stamp
       while(((millis() - timer)<= 2000) && is_1G()){//2 sec timer
         Serial.println(millis() - timer);
@@ -115,6 +127,7 @@ void loop(){
         }
       digitalWrite(Pumps_enable, LOW); //turn off motor -> BIN1 (L)
       triggered = 0;
+      launched = 0;
       }
    }
 }
@@ -125,7 +138,7 @@ bool is_1G(){
   y = accel.getCalculatedY();
   z = accel.getCalculatedZ();
 
-  if((x*x+y*y+z*z) >= cutoff){
+  if((x*x+y*y+z*z) >= cutoff_microg){
     return 1;
   }else {
     return 0;
@@ -139,7 +152,7 @@ bool is_1G(){
     Serial.println(status);
   }
 
-  if (status == 1){
+  if (status >= 1){
     return 1;
     
   } else {
@@ -147,6 +160,31 @@ bool is_1G(){
     return 0;
   }
 }
+
+bool high_G(){
+/* getting values from IMU
+  x = accel.getCalculatedX();
+  y = accel.getCalculatedY();
+  z = accel.getCalculatedZ();
+
+  if((x*x+y*y+z*z) >= cutoff_launch){
+    return 1;
+  }else {
+    return 0;
+  }
+  */
+  if(Serial.available() > 0){
+    status = Serial.read() - '0'; 
+    Serial.print("status:");
+    Serial.println(status);
+  }
+
+  if(status >=4){
+    return 1;
+    } else {
+      return 0;
+    }
+  }
 
 
 
