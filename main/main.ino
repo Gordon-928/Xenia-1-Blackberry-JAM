@@ -33,7 +33,7 @@ unsigned long previousTime = 0;
 unsigned long timer = 0;
 const float cutoff_microg = 0.81; //0.9g squared 
 const float cutoff_launch = 16.0; //4g Squared
-const float debounce = 1000; //debounce time 200ms
+const float debounce = 1500; //debounce time 200ms
 
 float x,y,z;
 
@@ -90,9 +90,10 @@ void setup(){
 
 void loop(){
   previousTime = millis(); //time stamp for next event 
-  Serial.println(millis() - previousTime); 
+  //Serial.println(millis() - previousTime); 
   
   while(high_G() && !launched){
+    Serial.println(millis() - previousTime);
     if((millis() - previousTime)>= debounce){//signal debounce
       launched = 1;  
     }
@@ -109,6 +110,7 @@ void loop(){
   
   previousTime = millis(); //time stamp for next event
   while(!is_1G()){
+    Serial.println(millis() - previousTime);
     if((millis() - previousTime)>= debounce){//signal debounce
     triggered = 1;  
     }
@@ -120,7 +122,7 @@ void loop(){
     if((millis() - previousTime)>= debounce){
       digitalWrite(Motor_enable,LOW); //turn off motor -> AIN1 (L)
       timer = millis(); //time stamp
-      while(((millis() - timer)<= 2000) && is_1G()){//2 sec timer
+      while(((millis() - timer)<= 2000)){//2 sec timer
         Serial.println(millis() - timer);
         digitalWrite(Pumps_enable, HIGH); //PWMB (H)
         digitalWrite(Pumps, HIGH); //turn on motor -> BIN1 (H)
